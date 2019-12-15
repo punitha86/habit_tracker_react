@@ -36,10 +36,7 @@ class App extends React.Component {
        console.log(data.json());
        return data.json()
      })
-     .then(jData=>{
-       console.log(jData);
-       return this.setState({habits_list:jData});
-   },
+     .then(jData=> this.setState({habits_list:jData}),
        err=>console.log(err))
    }
 
