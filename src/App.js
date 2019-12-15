@@ -33,7 +33,6 @@ class App extends React.Component {
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
      .then(data=>{
-       console.log(data.json());
        return data.json()
      })
      .then(jData=> this.setState({habits_list:jData}),
