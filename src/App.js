@@ -2,7 +2,8 @@
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react'
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -30,7 +31,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="large-container">
-      <h1>Hi</h1>
+<h1>Hi</h1>
       <ButtonToolbar>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
@@ -43,9 +44,12 @@ class App extends React.Component {
   <Button variant="link">Link</Button>
 </ButtonToolbar>
       </div>
+
     )
   }
 }
+
+
 
 // =============================
 // EXPORT
