@@ -17,13 +17,19 @@ if (process.env.NODE_ENV === 'development') {
 // COMPONENT CLASS
 // =============================
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state ={
+      posts:[]
+    }
 
+  }
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
      .then(data=>data.json())
-     .then(jData=>
-       console.log(jData)
-     ).catch(err=>console.log(err))
+     .then(jData=> {
+       this.setState({posts:jData})
+     }).catch(err=>console.log(err))
    }
    componentDidMount() {
   this.fetchPosts()
@@ -34,8 +40,9 @@ class App extends React.Component {
   render () {
     return (
       <div className="large-container">
-<h1 >Hi</h1>
+<h1 >Hi {this.posts[0].title}</h1>
       <div>
+
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success</Button>
