@@ -4,6 +4,12 @@
 // packages
 import React from 'react'
 
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+  baseUrl = 'http://localhost:8888'
+} else {
+  baseUrl = 'http://habit-tracker-api-test.herokuapp.com/api/'
+}
 
 
 // =============================
@@ -11,13 +17,31 @@ import React from 'react'
 // =============================
 class App extends React.Component {
 
+  fetchPosts = () => {
+     fetch(`${baseUrl}/habits`)
+     .then(data=>data.json())
+     .then(jData=>
+       console.log(jData)
+     ).catch(err=>console.log(err))
+   }
   // ==============
   // RENDER
   // ==============
   render () {
     return (
       <div className="large-container">
-<h1>Hi</h1>
+      <h1>Hi</h1>
+      <ButtonToolbar>
+  <Button variant="primary">Primary</Button>
+  <Button variant="secondary">Secondary</Button>
+  <Button variant="success">Success</Button>
+  <Button variant="warning">Warning</Button>
+  <Button variant="danger">Danger</Button>
+  <Button variant="info">Info</Button>
+  <Button variant="light">Light</Button>
+  <Button variant="dark">Dark</Button>
+  <Button variant="link">Link</Button>
+</ButtonToolbar>
       </div>
     )
   }
