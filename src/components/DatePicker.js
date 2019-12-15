@@ -8,7 +8,7 @@ import FormGroup from 'react-bootstrap/lib/FormGroup';
 import ControlLabel from 'react-bootstrap/lib/ControlLabel';
 import HelpBlock from 'react-bootstrap/lib/HelpBlock';
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor(props, context) {
         super(props, context);
 
@@ -47,3 +47,5 @@ export default class App extends React.Component {
         );
     }
 }
+
+export default App
