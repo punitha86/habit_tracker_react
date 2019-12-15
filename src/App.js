@@ -2,7 +2,8 @@
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react'
+import React from 'react';
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <div className="large-container">
 <h1>Hi</h1>
+
       </div>
     )
   }
