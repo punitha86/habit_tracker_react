@@ -25,13 +25,16 @@ class App extends React.Component {
        console.log(jData)
      ).catch(err=>console.log(err))
    }
+   componentDidMount() {
+  this.fetchPosts()
+}
   // ==============
   // RENDER
   // ==============
   render () {
     return (
       <div className="large-container">
-<h1 onClick={this.fetchPosts}>Hi</h1>
+<h1 >Hi</h1>
       <div>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
