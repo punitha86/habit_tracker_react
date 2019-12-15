@@ -31,7 +31,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="large-container">
-<h1>Hi</h1>
+<h1 onClick={this.fetchPosts}>Hi</h1>
       <div>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
