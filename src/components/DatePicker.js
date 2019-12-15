@@ -39,7 +39,7 @@ class App extends React.Component {
         return (
             <div>
                 <FormGroup>
-                    <ControlLabel>Label</ControlLabel>
+                    <ControlLabel>Testing Calendar</ControlLabel>
                     <DatePicker id="example-datepicker" value={this.state.selectedDate} onChange={this.onChange} />
                     <HelpBlock>Help</HelpBlock>
                 </FormGroup>

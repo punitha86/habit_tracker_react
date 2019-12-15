@@ -7,13 +7,14 @@ import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import Navigation from './components/Navigation.js';
 import Habit from './components/Habit.js';
+import DatePicker from './components/DatePicker.js';
 
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8888'
 } else {
-  baseUrl = 'https://cors-anywhere.herokuapp.com/https://habit-tracker-api-test.herokuapp.com/api'
+  baseUrl = 'http://habit-tracker-api-test.herokuapp.com/api'
 }
 
 
