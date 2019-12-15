@@ -39,8 +39,8 @@ class App extends React.Component {
      .then(jData=>{
        this.setState({habits_list:jData});
        console.log(jData);
-     })
-    .catch(err=>console.log(err))
+   },
+       err=>console.log(err))
    }
 
   componentDidMount() {
