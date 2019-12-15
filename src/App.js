@@ -14,6 +14,7 @@ let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8888'
 } else {
+
   baseUrl = 'https://cors-anywhere.herokuapp.com/http://habit-tracker-api-test.herokuapp.com/api'
 }
 
@@ -31,7 +32,10 @@ class App extends React.Component {
   }
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
-     .then(data=>data.json())
+     .then(data=>{
+       console.log(data.json());
+       return data.json()
+     })
      .then(jData=>{
        this.setState({habits_list:jData});
        console.log(jData);
