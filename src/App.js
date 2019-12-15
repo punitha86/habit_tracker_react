@@ -29,8 +29,10 @@ class App extends React.Component {
      .then(data=>data.json())
      .then(jData=> {
        this.setState({posts:jData})
+       console.log(posts);
      }).catch(err=>console.log(err))
    }
+   
    componentDidMount() {
   this.fetchPosts()
 }
@@ -40,7 +42,7 @@ class App extends React.Component {
   render () {
     return (
       <div className="large-container">
-<h1 >Hi {this.posts[0].title}</h1>
+<h1 >Hi {this.posts.title}</h1>
       <div>
 
   <Button variant="primary">Primary</Button>
