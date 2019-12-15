@@ -4,7 +4,10 @@
 // packages
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Navigation from './components/Navigation.js'
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import Navigation from './components/Navigation.js';
+import Habit from './components/Habit.js';
+
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -21,17 +24,21 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state ={
-      posts:[]
+      habits_list:[]
     }
 
   }
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
-     .then(data=>console.log(data))
+     .then(data=>data.json())
+     .then(jData=>{
+       this.setState({habits_list:jData});
+       console.log(jData);
+     })
     .catch(err=>console.log(err))
    }
 
-   componentDidMount() {
+  componentDidMount() {
   this.fetchPosts()
 }
   // ==============
@@ -41,7 +48,7 @@ class App extends React.Component {
     return (
       <div className="large-container">
       <h1 >Hi</h1>
-      <div>
+      <ButtonToolbar>
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="success">Success</Button>
@@ -51,9 +58,16 @@ class App extends React.Component {
         <Button variant="light">Light</Button>
         <Button variant="dark">Dark</Button>
         <Button variant="link">Link</Button>
-      </div>
-<Navigation/>
+      </ButtonToolbar>
+      <Navigation/>
 
+      {this.state.habits_list.map((habits) =>(
+      <Habit
+                  key={habits.id}
+                  postData={habits}
+                />
+              ))
+            }
       </div>
 
     )
