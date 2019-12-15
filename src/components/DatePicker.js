@@ -4,9 +4,9 @@ import React from 'react';
 import DatePicker from "react-bootstrap-date-picker";
 
 // Import Bootstrap components
-import FormGroup from 'react-bootstrap/lib/FormGroup';
-import ControlLabel from 'react-bootstrap/lib/ControlLabel';
-import HelpBlock from 'react-bootstrap/lib/HelpBlock';
+import FormGroup from 'react-bootstrap/FormGroup';
+import ControlLabel from 'react-bootstrap/ControlLabel';
+import HelpBlock from 'react-bootstrap/HelpBlock';
 
 class App extends React.Component {
     constructor(props, context) {
