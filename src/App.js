@@ -9,11 +9,16 @@ import Navigation from './components/Navigation.js';
 import Habit from './components/Habit.js';
 
 
+
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8888'
 } else {
+<<<<<<< HEAD
   baseUrl = 'http://habit-tracker-api-test.herokuapp.com/api'
+=======
+  baseUrl = 'https://cors-anywhere.herokuapp.com/http://habit-tracker-api-test.herokuapp.com/api'
+>>>>>>> d73b186f7d4fd55e45f7c629f0de0f7abe1ae63e
 }
 
 
@@ -30,7 +35,10 @@ class App extends React.Component {
   }
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
-     .then(data=>data.json())
+     .then(data=>{
+       console.log(data.json());
+       return data.json()
+     })
      .then(jData=>{
        this.setState({habits_list:jData});
        console.log(jData);
@@ -73,6 +81,8 @@ class App extends React.Component {
     )
   }
 }
+
+
 
 
 
