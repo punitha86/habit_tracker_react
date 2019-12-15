@@ -4,10 +4,7 @@
 // packages
 import React from 'react'
 
-// components
-import Header from './components/Header.js'
-import Aside from './components/Aside.js'
-import Main from './components/Main.js'
+
 
 // =============================
 // COMPONENT CLASS
