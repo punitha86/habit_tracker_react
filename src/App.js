@@ -26,13 +26,10 @@ class App extends React.Component {
   }
   fetchPosts = () => {
      fetch(`${baseUrl}/habits`)
-     .then(data=>data.json())
-     .then(jData=> {
-       this.setState({posts:jData})
-       console.log(posts);
-     }).catch(err=>console.log(err))
+     .then(data=>console.log(data);)
+    .catch(err=>console.log(err))
    }
-   
+
    componentDidMount() {
   this.fetchPosts()
 }
