@@ -32,7 +32,7 @@ class App extends React.Component {
     return (
       <div className="large-container">
 <h1>Hi</h1>
-      <ButtonToolbar>
+      <div>
   <Button variant="primary">Primary</Button>
   <Button variant="secondary">Secondary</Button>
   <Button variant="success">Success</Button>
@@ -42,7 +42,7 @@ class App extends React.Component {
   <Button variant="light">Light</Button>
   <Button variant="dark">Dark</Button>
   <Button variant="link">Link</Button>
-</ButtonToolbar>
+</div>
       </div>
 
     )
