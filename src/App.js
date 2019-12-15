@@ -9,7 +9,7 @@ let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8888'
 } else {
-  baseUrl = 'https://habit-tracker-api-test.herokuapp.com/api'
+  baseUrl = 'https://cors-anywhere.herokuapp.com/https://habit-tracker-api-test.herokuapp.com/api'
 }
 
 
