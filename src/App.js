@@ -45,13 +45,13 @@ class App extends React.Component {
         }
         switch(view) {
             case 'home':
-                pageTitle="I heard that..."
+                pageTitle="Track your habits here"
                 break
             case 'addHabit':
-                pageTitle="What did you say?"
+                pageTitle="Add you new habit below"
                 break
             case 'editHabit':
-                pageTitle="What did you really say?"
+                pageTitle="Edit your habit here"
                 formInputs = {
                     habit: postData.title,
                     description: postData.description,
