@@ -57,8 +57,8 @@ class Main extends React.Component {
         .then(jsonedPost => {
             this.props.handleView('home')
             this.setState(prevState => {
-                prevState.habits = jsonedPost
-                return { habits: prevState.habits }
+                prevState.postData = jsonedPost
+                return { postData: prevState.postData }
             })
         })
         .catch(err=>console.log(err))
@@ -89,7 +89,7 @@ class Main extends React.Component {
             }})
             .then(json => {
                 this.setState(prevState =>{
-                    const habits = prevState.habits.filter(post=> post.id
+                    const habits = prevState.postData.filter(post=> post.id
                     !==id)
                     return{habits}
                 })
