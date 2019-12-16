@@ -29,6 +29,8 @@ class App extends React.Component {
                 habit: null,
                 description: null,
                 comments: null,
+                daysOfWeek: null,
+                timing: null,
                 id: null
             }
         }
@@ -41,6 +43,8 @@ class App extends React.Component {
             habit: '',
             description: '',
             comments: '',
+            daysOfWeek: '',
+            timing: '',
             id: null
         }
         switch(view) {
@@ -56,6 +60,8 @@ class App extends React.Component {
                     habit: postData.habit,
                     description: postData.description,
                     comments: postData.comments,
+                    daysOfWeek: postData.daysOfWeek,
+                    timing: postData.timing,
                     id: postData.id
                 }
                 break
