@@ -10,7 +10,6 @@ render(){
       <Nav className="mr-auto">
         <Nav.Link onClick={() => {this.props.handleView('home')}} href="#home">Home</Nav.Link>
         <Nav.Link onClick={() => {this.props.handleView('addHabit')}} href="#link">Add Habit</Nav.Link>
-        <Nav.Link onClick={() => {this.props.handleView('editHabit')}} href="#link">Edit Habit</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
