@@ -23,13 +23,6 @@ class Habit extends React.Component {
             <h1>{this.props.postData.habit}</h1>
 
         </div>
-
-        <div className="post-options">
-            <ul>
-                <li onClick={()=> {this.props.handleView('editHabit', this.props.postData)}}><span className="lnr lnr-pencil"></span></li>
-                <li onClick={()=> {this.props.handleDelete(this.props.postData.id)}}><span className="lnr lnr-trash"></span></li>
-            </ul>
-        </div>
         <Example property={this.props}/>
       </article>
     )
@@ -55,15 +48,13 @@ function Example(property) {
         <Modal.Body>
             <h4>Description: {property.property.postData.description}</h4>
             <h4>Comments: {property.property.postData.comments}</h4>
-
-
             </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
           <Button variant="primary" onClick={()=> {property.property.handleView('editHabit', property.property.postData)}}>
-            Edit
+            Edit <span className="lnr lnr-pencil"></span>
+          </Button>
+          <Button variant="danger" onClick={()=> {property.property.handleDelete(property.property.postData.id)}}>
+            Delete <span className="lnr lnr-trash"></span>
           </Button>
         </Modal.Footer>
       </Modal>
