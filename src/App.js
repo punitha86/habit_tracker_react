@@ -1,66 +1,88 @@
+
+
 // =============================
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react';
-import Button from 'react-bootstrap/Button';
+import React from 'react'
+
+// components
+import Habit from './components/Habit.js'
 import Navigation from './components/Navigation.js'
-
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:8888'
-} else {
-  baseUrl = 'https://cors-anywhere.herokuapp.com/https://habit-tracker-api-test.herokuapp.com/api'
-}
-
+import Main from './components/Main.js'
 
 // =============================
 // COMPONENT CLASS
 // =============================
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      posts:[]
+    constructor(props){
+        super(props)
+        this.state = {
+            view: {
+                page: 'home',
+                pageTitle: '...'
+            },
+            formInputs: {
+                habit: null,
+                description: null,
+                comments: null,
+                id: null
+            }
+        }
     }
 
-  }
-  fetchPosts = () => {
-     fetch(`${baseUrl}/habits`)
-     .then(data=>console.log(data))
-    .catch(err=>console.log(err))
-   }
+    handleView = (view, postData) => {
+        let pageTitle = ''
+        let formInputs = {
+            habit: '',
+            description: '',
+            comments: '',
+            id: null
+        }
+        switch(view) {
+            case 'home':
+                pageTitle="I heard that..."
+                break
+            case 'addHabit':
+                pageTitle="What did you say?"
+                break
+            case 'editHabit':
+                pageTitle="What did you really say?"
+                formInputs = {
+                    habit: postData.habit,
+                    description: postData.description,
+                    comments: postData.comments,
+                    id: postData.id
+                }
+                break
+            default:
+                break
+        }
+        this.setState({
+            view: {
+                page: view,
+                pageTitle: pageTitle
+            },
+            formInputs: formInputs
+        })
+    }
 
-   componentDidMount() {
-  this.fetchPosts()
-}
   // ==============
   // RENDER
   // ==============
   render () {
     return (
-      <div className="large-container">
-      <h1 >Hi</h1>
-      <div>
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="success">Success</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="info">Info</Button>
-        <Button variant="light">Light</Button>
-        <Button variant="dark">Dark</Button>
-        <Button variant="link">Link</Button>
-      </div>
-<Navigation/>
-
-      </div>
-
+        <div className="main-container">
+        <Navigation handleView={this.handleView} />
+        <Main
+          view={this.state.view}
+          handleView={this.handleView}
+          formInputs={this.state.formInputs}
+         />
+        </div>
     )
   }
 }
-
-
 
 // =============================
 // EXPORT
