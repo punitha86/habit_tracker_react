@@ -104,7 +104,7 @@ class Main extends React.Component {
   // ==============
   render () {
       return (
-     <main>
+     <div>
         <h1>{this.props.view.pageTitle}</h1>
         { this.props.view.page === 'home'
             ? this.state.habits.map((postData) => (
@@ -122,7 +122,7 @@ class Main extends React.Component {
 
             />
         }
-     </main>
+     </div>
     )
   }
 }
