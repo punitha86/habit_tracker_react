@@ -6,6 +6,8 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import Table from 'react-bootstrap/Table';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 
 
@@ -13,17 +15,57 @@ import Modal from 'react-bootstrap/Modal';
 // COMPONENT CLASS
 // =============================
 class Habit extends React.Component {
+
+
   // ==============
   // RENDER
   // ==============
   render () {
     return (
       <article>
-        <div className="post-header">
-            <h1>{this.props.postData.habit}</h1>
+      <Jumbotron>
+      <h1>My Habit Tracker</h1>
+      <p>
+      <Button variant="primary">Learn more</Button>
+      </p>
+      </Jumbotron>
+      <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Habit</th>
+              <th> Week days </th>
+              <th> time </th>
+              <th>S</th>
+              <th>M</th>
+              <th>T</th>
+              <th>W</th>
+              <th>Th</th>
+              <th>F</th>
+              <th>S</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{this.props.postData.id}</td>
+              <td>{this.props.postData.habit}</td>
+              <td>{this.props.postData.daysOfWeek}</td>
+              <td>{this.props.postData.timing}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td>{this.props.postData.completed}</td>
+              <td><Example property={this.props}/></td>
+            </tr>
 
-        </div>
-        <Example property={this.props}/>
+          </tbody>
+    </Table> 
+
+
       </article>
     )
   }
