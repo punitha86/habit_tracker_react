@@ -13,9 +13,9 @@ import Form from './Form.js'
 // =============================
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:8888'
+  baseUrl = 'http://localhost:8888';
 } else {
-  console.log('https://my-habit-tracker.herokuapp.com/');
+    baseUrl = 'https://cors-anywhere.herokuapp.com/http://habit-tracker-api-test.herokuapp.com/api';
 }
 
 class Main extends React.Component {
