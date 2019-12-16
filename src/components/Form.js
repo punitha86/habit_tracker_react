@@ -32,9 +32,10 @@ class Form extends React.Component {
   // handles submit
   handleSubmit = (e) => {
     e.preventDefault()
-    if (this.props.view.page === 'addPost') {
-        this.props.handleCreate(this.state)
-    } else if (this.props.view.page === 'editPost') {
+    if (this.props.view.page === 'addHabit') {
+      console.log(this.state,"adding habit");
+        this.props.handleCreate(this.state);
+    } else if (this.props.view.page === 'editHabit') {
         this.props.handleUpdate(this.state)
     }
 }
@@ -66,7 +67,7 @@ componentDidMount(){
           comments
           <textarea placeholder="write your words" id="comments" value={this.state.comments} onChange={this.handleChange}></textarea>
         </label>
-        <input type="submit" value="share"/>
+        <input type="submit" value="Add Habit"/>
       </form>
     )
   }

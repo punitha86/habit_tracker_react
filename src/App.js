@@ -1,83 +1,93 @@
+
+
 // =============================
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
-import Navigation from './components/Navigation.js';
-import Habit from './components/Habit.js';
+
+import React from 'react'
 
 
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-  baseUrl = 'http://localhost:8888'
-} else {
-
-  baseUrl = 'https://cors-anywhere.herokuapp.com/http://habit-tracker-api-test.herokuapp.com/api'
-}
-
+// components
+import Habit from './components/Habit.js'
+import Navigation from './components/Navigation.js'
+import Main from './components/Main.js'
 
 // =============================
 // COMPONENT CLASS
 // =============================
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state ={
-      habits_list:[]
+    constructor(props){
+        super(props)
+        this.state = {
+            view: {
+                page: 'home',
+                pageTitle: '...'
+            },
+            formInputs: {
+                habit: null,
+                description: null,
+                comments: null,
+                id: null
+            }
+        }
     }
 
-  }
-  fetchPosts = () => {
-     fetch(`${baseUrl}/habits`)
-     .then(data=>{
-       return data.json()
-     })
-     .then(jData=> this.setState({habits_list:jData}),
-       err=>console.log(err))
-   }
 
-  componentDidMount() {
-  this.fetchPosts()
-}
+    handleView = (view, postData) => {
+        let pageTitle = ''
+        let formInputs = {
+            habit: '',
+            description: '',
+            comments: '',
+            id: null
+        }
+        switch(view) {
+            case 'home':
+                pageTitle="I heard that..."
+                break
+            case 'addHabit':
+                pageTitle="What did you say?"
+                break
+            case 'editHabit':
+                pageTitle="What did you really say?"
+                formInputs = {
+                    habit: postData.habit,
+                    description: postData.description,
+                    comments: postData.comments,
+                    id: postData.id
+                }
+                break
+            default:
+                break
+        }
+        this.setState({
+            view: {
+                page: view,
+                pageTitle: pageTitle
+            },
+            formInputs: formInputs
+        })
+    }
+
+
   // ==============
   // RENDER
   // ==============
   render () {
     return (
-      <div className="large-container">
-      <h1 >Hi</h1>
-      <ButtonToolbar>
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="success">Success</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="info">Info</Button>
-        <Button variant="light">Light</Button>
-        <Button variant="dark">Dark</Button>
-        <Button variant="link">Link</Button>
-      </ButtonToolbar>
-      <Navigation/>
-
-      {this.state.habits_list.map((habits) =>(
-      <Habit
-                  key={habits.id}
-                  postData={habits}
-                />
-              ))
-            }
-      </div>
-
+        <div className="main-container">
+        <Navigation handleView={this.handleView} />
+        <Main
+          view={this.state.view}
+          handleView={this.handleView}
+          formInputs={this.state.formInputs}
+         />
+        </div>
     )
   }
 }
-
-
-
-
 
 // =============================
 // EXPORT
