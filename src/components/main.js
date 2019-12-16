@@ -28,14 +28,20 @@ class Main extends React.Component {
     fetchHabits = () => {
         fetch(`${baseUrl}/habits`)
         .then(data => data.json())
-        .then(jData => {
-            this.setState({habits:jData})
-        }).catch(err=>console.log(err))
+        .then(jData => this.setState({habits:jData}),
+        err=>console.log(err))
     }
 
     handleCreate = (createData) => {
+      //forming the data to be passed to the api format
+      let stringifiedData={title: createData.habit,
+         description:createData.description,
+         daysOfWeek:"Tuesday",
+         timing:"7.00AM",
+         completed:"false",
+         comments:createData.comments};
         fetch(`${baseUrl}/habits`, {
-            body: JSON.stringify(createData),
+            body: JSON.stringify(stringifiedData),
             method: 'POST',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
