@@ -39,7 +39,7 @@ class Habit extends React.Component {
 function Example(property) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false); 
   const handleShow = () => setShow(true);
 
   return (
@@ -55,7 +55,7 @@ function Example(property) {
         <Modal.Body>
             <h4>Description: {property.property.description}</h4>
             <h4>Comments: {property.property.comments}</h4>
-            
+
 
             </Modal.Body>
         <Modal.Footer>
