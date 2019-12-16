@@ -75,10 +75,12 @@ class Main extends React.Component {
         })
             .then(updatedPost => {
                 this.props.handleView('home')
-                this.fetchPost()
+                this.fetchHabits()
             })
             .catch(err=>console.log(err))
         }
+
+
 
     handleDelete = (id) => {
         fetch(`${baseUrl}/habits/${id}`, {
@@ -86,12 +88,13 @@ class Main extends React.Component {
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
-            }})
+            }
+        })
             .then(json => {
                 this.setState(prevState =>{
-                    const habits = prevState.postData.filter(post=> post.id
+                    const postData = prevState.postData.filter(post=> post.id
                     !==id)
-                    return{habits}
+                    return{postData}
                 })
             })
             .catch(err=>console.log(err))
@@ -115,6 +118,7 @@ class Main extends React.Component {
                key={habits.id}
                postData={habits}
                handleView={this.props.handleView}
+               handleDelete={this.handleDelete}
              />
             ))
          : <Form
