@@ -65,6 +65,7 @@ class Main extends React.Component {
     }
 
     handleUpdate = (updateData) => {
+      console.log(updateData);
         fetch(`${baseUrl}/habits/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
