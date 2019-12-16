@@ -24,7 +24,7 @@ class Habit extends React.Component {
         </div>
         <div className="post-options">
             <ul>
-                <li onClick={()=> {this.props.handleView('editPost', this.props.postData)}}>edit post</li>
+                <li onClick={()=> {this.props.handleView('editHabit', this.props.postData)}}>edit habit</li>
                 <li onClick={()=> {this.props.handleDelete(this.props.postData.id)}}>delete post</li>
             </ul>
         </div>
