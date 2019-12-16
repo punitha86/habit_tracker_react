@@ -12,7 +12,7 @@ import Modal from 'react-bootstrap/modal';
 // =============================
 // COMPONENT CLASS
 // =============================
-class Habit extends React.Component { 
+class Habit extends React.Component {
   // ==============
   // RENDER
   // ==============
@@ -30,7 +30,7 @@ class Habit extends React.Component {
                 <li onClick={()=> {this.props.handleDelete(this.props.postData.id)}}><span className="lnr lnr-trash"></span></li>
             </ul>
         </div>
-        <Example property={this.props.postData}/>
+        <Example property={this.props}/>
       </article>
     )
   }
@@ -50,11 +50,11 @@ function Example(property) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{property.property.habit}</Modal.Title>
+          <Modal.Title>{property.property.postData.habit}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <h4>Description: {property.property.description}</h4>
-            <h4>Comments: {property.property.comments}</h4>
+            <h4>Description: {property.property.postData.description}</h4>
+            <h4>Comments: {property.property.postData.comments}</h4>
 
 
             </Modal.Body>
@@ -62,8 +62,8 @@ function Example(property) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button variant="primary" onClick={()=> {property.property.handleView('editHabit', property.property.postData)}}>
+            Edit
           </Button>
         </Modal.Footer>
       </Modal>
