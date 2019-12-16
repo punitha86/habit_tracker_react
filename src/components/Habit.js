@@ -23,23 +23,20 @@ class Habit extends React.Component {
             <h1>{this.props.postData.title}</h1>
 
         </div>
-        <div className="post-body">
-            <h4>{this.props.postData.description} </h4>
-            <h5>{this.props.postData.comments} </h5>
-        </div>
+
         <div className="post-options">
             <ul>
-                <li onClick={()=> {this.props.handleView('editHabit', this.props.postData)}}><span class="lnr lnr-pencil"></span></li>
-                <li onClick={()=> {this.props.handleDelete(this.props.postData.id)}}><span class="lnr lnr-trash"></span></li>
+                <li onClick={()=> {this.props.handleView('editHabit', this.props.postData)}}><span className="lnr lnr-pencil"></span></li>
+                <li onClick={()=> {this.props.handleDelete(this.props.postData.id)}}><span className="lnr lnr-trash"></span></li>
             </ul>
         </div>
-        <Example />
+        <Example property={this.props.postData}/>
       </article>
     )
   }
 }
 
-function Example() {
+function Example(property) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -53,9 +50,14 @@ function Example() {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>header</Modal.Title>
+          <Modal.Title>{property.property.title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+            <h4>Description: {property.property.description}</h4>
+            <h4>Comments: {property.property.comments}</h4>
+            
+
+            </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
