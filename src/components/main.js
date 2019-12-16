@@ -22,13 +22,13 @@ class Main extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        habits: []
+        postData: []
       }
     }
     fetchHabits = () => {
         fetch(`${baseUrl}/habits`)
         .then(data => data.json())
-        .then(jData => this.setState({habits:jData}),
+        .then(jData => this.setState({postData:jData}),
         err=>console.log(err))
     }
 
