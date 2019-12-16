@@ -2,7 +2,9 @@
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react'
+import React from 'react';
+
+
 
 // components
 import Habit from './Habit.js'
@@ -112,6 +114,8 @@ class Main extends React.Component {
       return (
      <div>
         <h1>{this.props.view.pageTitle}</h1>
+
+
         { this.props.view.page === 'home'
             ? this.state.postData.map((habits) => (
               <Habit
@@ -121,6 +125,7 @@ class Main extends React.Component {
                handleDelete={this.handleDelete}
              />
             ))
+
          : <Form
                 handleCreate={this.handleCreate}
                 handleUpdate={this.handleUpdate}
@@ -129,6 +134,7 @@ class Main extends React.Component {
 
             />
         }
+
      </div>
     )
   }
