@@ -20,7 +20,7 @@ class Habit extends React.Component {
     return (
       <article>
         <div className="post-header">
-            <h1>{this.props.postData.title}</h1>
+            <h1>{this.props.postData.habit}</h1>
 
         </div>
 
@@ -39,7 +39,7 @@ class Habit extends React.Component {
 function Example(property) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false); 
+  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   return (
@@ -50,7 +50,7 @@ function Example(property) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{property.property.title}</Modal.Title>
+          <Modal.Title>{property.property.habit}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <h4>Description: {property.property.description}</h4>
