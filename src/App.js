@@ -53,7 +53,7 @@ class App extends React.Component {
             case 'editHabit':
                 pageTitle="Edit your habit here"
                 formInputs = {
-                    habit: postData.title,
+                    habit: postData.habit,
                     description: postData.description,
                     comments: postData.comments,
                     id: postData.id

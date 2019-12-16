@@ -36,7 +36,7 @@ class Main extends React.Component {
 
     handleCreate = (createData) => {
       //forming the data to be passed to the api format
-      let stringifiedData={title: createData.habit,
+      let stringifiedData={habit: createData.habit,
          description:createData.description,
          daysOfWeek:"Tuesday",
          timing:"7.00AM",
