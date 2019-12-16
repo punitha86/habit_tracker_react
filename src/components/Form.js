@@ -2,8 +2,8 @@
 // DEPENDENCIES
 // =============================
 // packages
-import React from 'react'
-
+import React from 'react';
+import Datetime from 'react-datetime';
 // =============================
 // COMPONENT CLASS
 // =============================
@@ -47,7 +47,15 @@ componentDidMount(){
         id: this.props.formInputs.id
     })
 }
-
+renderDay=(props, currentDate, selectedDate )=>{
+        return <td {...props}>{ '0' + currentDate.date() }</td>;
+    }
+renderMonth=( props, month, year, selectedDate )=>{
+        return <td {...props}>{ month }</td>;
+    }
+renderYear=( props, year, selectedDate )=>{
+        return <td {...props}>{ year % 100 }</td>;
+    }
   // ==============
   // RENDER
   // ==============
@@ -66,6 +74,13 @@ componentDidMount(){
           comments
           <textarea placeholder="write your words" id="comments" value={this.state.comments} onChange={this.handleChange}></textarea>
         </label>
+        Date: <Datetime
+          renderDay={ this.renderDay }
+          renderMonth={ this.renderMonth }
+          renderYear={ this.renderYear }
+          timeFormat={false}
+      />
+      Time: <Datetime dateFormat={false} />
         <input type="submit" value="Add Habit"/>
       </form>
     )

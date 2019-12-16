@@ -21,7 +21,6 @@ class Habit extends React.Component {
       <article>
         <div className="post-header">
             <h1>{this.props.postData.habit}</h1>
-
         </div>
         <Example property={this.props}/>
       </article>
