@@ -40,8 +40,8 @@ class Main extends React.Component {
       //forming the data to be passed to the api format
       let stringifiedData={habit: createData.habit,
          description:createData.description,
-         daysOfWeek:"Tuesday",
-         timing:"7.00AM",
+         daysOfWeek:createData.daysOfWeek,
+         timing:createData.timing,
          completed:"false",
          comments:createData.comments};
       //console.log(stringifiedData);
@@ -114,7 +114,6 @@ class Main extends React.Component {
       return (
      <div>
         <h1>{this.props.view.pageTitle}</h1>
-
 
         { this.props.view.page === 'home'
             ? this.state.postData.map((habits) => (

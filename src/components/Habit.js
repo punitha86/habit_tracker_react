@@ -63,7 +63,7 @@ class Habit extends React.Component {
             </tr>
 
           </tbody>
-    </Table> 
+    </Table>
 
 
       </article>
@@ -90,6 +90,8 @@ function Example(property) {
         <Modal.Body>
             <h4>Description: {property.property.postData.description}</h4>
             <h4>Comments: {property.property.postData.comments}</h4>
+            <h4>Habit Week Days: {property.property.postData.daysOfWeek}</h4>
+            <h4>Haibt Times: {property.property.postData.timing}</h4>
             </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={()=> {property.property.handleView('editHabit', property.property.postData)}}>
