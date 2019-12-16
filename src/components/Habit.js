@@ -12,7 +12,7 @@ import Modal from 'react-bootstrap/modal';
 // =============================
 // COMPONENT CLASS
 // =============================
-class Habit extends React.Component {
+class Habit extends React.Component { 
   // ==============
   // RENDER
   // ==============
