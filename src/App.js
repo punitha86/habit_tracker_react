@@ -4,7 +4,10 @@
 // DEPENDENCIES
 // =============================
 // packages
+
 import React from 'react'
+
+
 
 // components
 import Habit from './components/Habit.js'
@@ -30,6 +33,7 @@ class App extends React.Component {
             }
         }
     }
+
 
     handleView = (view, postData) => {
         let pageTitle = ''
@@ -66,6 +70,7 @@ class App extends React.Component {
             formInputs: formInputs
         })
     }
+
 
   // ==============
   // RENDER
