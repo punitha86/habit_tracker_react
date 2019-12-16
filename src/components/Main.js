@@ -42,7 +42,7 @@ class Main extends React.Component {
          description:createData.description,
          daysOfWeek:createData.daysOfWeek,
          timing:createData.timing,
-         completed:"false",
+         completed:"false", 
          comments:createData.comments};
       //console.log(stringifiedData);
         fetch(`${baseUrl}/habits`, {
