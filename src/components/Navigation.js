@@ -8,8 +8,9 @@ render(){
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link href="#home">Home</Nav.Link>
-        <Nav.Link href="#link">Link</Nav.Link>
+        <Nav.Link onClick={() => {this.props.handleView('home')}} href="#home">Home</Nav.Link>
+        <Nav.Link onClick={() => {this.props.handleView('addHabit')}} href="#link">Add Habit</Nav.Link>
+        <Nav.Link onClick={() => {this.props.handleView('editHabit')}} href="#link">Edit Habit</Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
