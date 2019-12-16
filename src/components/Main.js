@@ -16,22 +16,22 @@ let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
   baseUrl = 'http://localhost:8888'
 } else {
-  console.log('https://my-habit-tracker.herokuapp.com/');
+  baseUrl = 'https://cors-anywhere.herokuapp.com/http://habit-tracker-api-test.herokuapp.com/api';
 }
 
 class Main extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
-        habits: []
+        postData: []
       }
     }
     fetchHabits = () => {
         fetch(`${baseUrl}/habits`)
         .then(data => data.json())
         .then(jData =>
-            this.setState({habits:jData})
-        ).catch(err=>console.log(err))
+            this.setState({postData:jData}),
+        err=>console.log(err))
     }
 
     handleCreate = (createData) => {
@@ -57,8 +57,8 @@ class Main extends React.Component {
         .then(jsonedPost => {
             this.props.handleView('home')
             this.setState(prevState => {
-                prevState.habits = jsonedPost
-                return { habits: prevState.habits }
+                prevState.postData = jsonedPost
+                return { postData: prevState.postData }
             })
         })
         .catch(err=>console.log(err))
@@ -89,7 +89,7 @@ class Main extends React.Component {
             }})
             .then(json => {
                 this.setState(prevState =>{
-                    const habits = prevState.habits.filter(post=> post.id
+                    const habits = prevState.postData.filter(post=> post.id
                     !==id)
                     return{habits}
                 })
@@ -110,7 +110,7 @@ class Main extends React.Component {
      <div>
         <h1>{this.props.view.pageTitle}</h1>
         { this.props.view.page === 'home'
-            ? this.state.habits.map((habits) => (
+            ? this.state.postData.map((habits) => (
               <Habit
                key={habits.id}
                postData={habits}

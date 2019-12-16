@@ -33,7 +33,6 @@ class Form extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     if (this.props.view.page === 'addHabit') {
-      console.log(this.state,"adding habit");
         this.props.handleCreate(this.state);
     } else if (this.props.view.page === 'editHabit') {
         this.props.handleUpdate(this.state)
