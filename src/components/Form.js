@@ -4,10 +4,15 @@
 // packages
 import React from 'react';
 import Datetime from 'react-datetime';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+
 // =============================
 // COMPONENT CLASS
 // =============================
-class Form extends React.Component {
+class Forms extends React.Component {
   // ==============
   // STATE
   // ==============
@@ -65,29 +70,51 @@ renderYear=( props, year, selectedDate )=>{
   // ==============
   render () {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Habit
-          <input type="text" placeholder="your habit" id="habit" value={this.state.habit} onChange={this.handleChange}/>
-        </label>
-        <label>
-          Description
-          <input type="text" placeholder="your description" id="description" value={this.state.description} onChange={this.handleChange}/>
-        </label>
-        <label id="post-form">
-          Comments
-          <textarea placeholder="write your words" id="comments" value={this.state.comments} onChange={this.handleChange}></textarea>
-        </label>
-        <label>
-          Habit Week Days
-          <input type="text" placeholder="habit week days" id="daysOfWeek" value={this.state.daysOfWeek} onChange={this.handleChange}/>
-        </label>
-        <label>
-          Habit Times
-          <input type="text" placeholder="habit times" id="timing" value={this.state.timing} onChange={this.handleChange}/>
-        </label>
-        <input type="submit" value="Add Habit"/>
-      </form>
+      <>
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group >
+          <Form.Label>Habit</Form.Label>
+          <Form.Control type="text" placeholder="Your Habit" id= "habit" value={this.state.habit} onChange={this.handleChange}/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Description</Form.Label>
+          <Form.Control type="text" placeholder="Describe your habit!" id= "description" value={this.state.description} onChange={this.handleChange}/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Comments</Form.Label>
+          <Form.Control as="textarea" placeholder="Comments about your habit!" id= "comments" value={this.state.comments} onChange={this.handleChange}/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Habit Weekdays</Form.Label>
+          <Form.Control type="text" placeholder="Monday" id= "daysOfWeek" value={this.state.daysOfWeek} onChange={this.handleChange}/>
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Habit Time</Form.Label>
+          <Form.Control type="time" id= "timing" value={this.state.timing} onChange={this.handleChange}/>
+        </Form.Group>
+
+        <ButtonToolbar aria-label="Toolbar with button groups">
+          <ButtonGroup className="mr-2" aria-label="First group">
+          <Button>S</Button>
+          <Button>M</Button>
+          <Button>T</Button>
+          <Button>W</Button>
+          <Button>Th</Button>
+          <Button>F</Button>
+          <Button>Sa</Button>
+
+          </ButtonGroup>
+          </ButtonToolbar>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+
+      </>
     )
   }
 }
@@ -95,4 +122,4 @@ renderYear=( props, year, selectedDate )=>{
 // =============================
 // EXPORT
 // =============================
-export default Form
+export default Forms

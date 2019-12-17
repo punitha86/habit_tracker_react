@@ -10,7 +10,7 @@ import React from 'react'
 
 
 // components
-import Habit from './components/Habit.js'
+
 import Navigation from './components/Navigation.js'
 import Main from './components/Main.js'
 
