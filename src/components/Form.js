@@ -71,7 +71,7 @@ componentDidMount(){
 
         <Form.Group>
           <Form.Label>Description</Form.Label>
-          <Form.Control type="text" placeholder="Describe your habit!" id= "description" value={this.state.description} onChange={this.handleChange}/>
+          <Form.Control type="text" placeholder="Describe your habit" id= "description" value={this.state.description} onChange={this.handleChange}/>
         </Form.Group>
 
         <Form.Group>
@@ -80,7 +80,7 @@ componentDidMount(){
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Habit Weekdays</Form.Label>
+          <Form.Label>Habit Weekday Goals</Form.Label>
           <Form.Control type="text" placeholder="Monday" id= "daysOfWeek" value={this.state.daysOfWeek} onChange={this.handleChange}/>
         </Form.Group>
 
