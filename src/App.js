@@ -13,6 +13,7 @@ import React from 'react'
 
 import Navigation from './components/Navigation.js'
 import Main from './components/Main.js'
+import Background from './components/Background.js'
 
 // =============================
 // COMPONENT CLASS
@@ -89,7 +90,8 @@ class App extends React.Component {
           view={this.state.view}
           handleView={this.handleView}
           formInputs={this.state.formInputs}
-         />
+        />
+        <Background/>
         </div>
     )
   }
