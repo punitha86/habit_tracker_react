@@ -6,8 +6,7 @@
 import React, {useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import Table from 'react-bootstrap/Table';
-import Jumbotron from 'react-bootstrap/Jumbotron';
+
 
 
 
@@ -15,7 +14,25 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 // COMPONENT CLASS
 // =============================
 class Habit extends React.Component {
+  constructor(props){
+      super(props)
+      this.state = {
+          toggleState : false,
+          selectedDays :[]
+  }
+this.addSelectedDays = this.addSelectedDays.bind(this)
+}
 
+addSelectedDays(habit) {
+  this.setState({selectedDays: [habit, ...this.state.selectedDays]})
+}
+
+toggleDays =  () =>{
+  console.log(this.state.selectedDays);
+  this.setState({
+    toggleState: !this.state.toggleState
+  })
+}
 
   // ==============
   // RENDER
@@ -28,16 +45,81 @@ class Habit extends React.Component {
               <td>{this.props.postData.habit}</td>
               <td>{this.props.postData.daysOfWeek}</td>
               <td>{this.props.postData.timing}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td>{this.props.postData.completed}</td>
-              <td><Example property={this.props}/></td>
 
-      </tr>
+              <td onClick={()=>
+                this.toggleDays()}
+               handleAdd={this.addSelectedDays}>
+                {
+                  this.state.toggleState
+                ?
+                <span className="lnr lnr-checkmark-circle" ></span>
+                :
+                <span className="lnr lnr-cross-circle" ></span>
+                }
+              </td>
+
+              <td onClick={()=>this.toggleDays()}>
+                {
+                  this.state.toggleState
+                ?
+                <span className="lnr lnr-checkmark-circle" ></span>
+                :
+                <span className="lnr lnr-cross-circle" ></span>
+                }
+              </td>
+
+              <td onClick={()=>this.toggleDays()}>
+                {
+                  this.state.toggleState
+                ?
+                <span className="lnr lnr-checkmark-circle" ></span>
+                :
+                <span className="lnr lnr-cross-circle" ></span>
+                }
+              </td>
+              <td onClick={()=>this.toggleDays()}>
+              {
+                this.state.toggleState
+              ?
+              <span className="lnr lnr-checkmark-circle" ></span>
+              :
+              <span className="lnr lnr-cross-circle" ></span>
+              }
+              </td>
+              <td onClick={()=>this.toggleDays()}>
+              {
+                this.state.toggleState
+              ?
+              <span className="lnr lnr-checkmark-circle" ></span>
+              :
+              <span className="lnr lnr-cross-circle" ></span>
+              }
+              </td>
+              <td onClick={()=>this.toggleDays()}>
+              {
+                this.state.toggleState
+              ?
+              <span className="lnr lnr-checkmark-circle" ></span>
+              :
+              <span className="lnr lnr-cross-circle" ></span>
+              }
+              </td>
+
+            <td onClick={()=>{
+              this.toggleDays();}
+            }>
+              {
+                this.state.toggleState
+              ?
+              <span className="lnr lnr-checkmark-circle" ></span>
+              :
+              <span className="lnr lnr-cross-circle" ></span>
+              }
+            </td>
+            <td>
+            <Example property={this.props}/>
+            </td>
+        </tr>
     )
   }
 }
@@ -56,13 +138,13 @@ function Example(property) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{property.property.postData.habit}</Modal.Title>
+          <Modal.Title><span id="modalTitle">{property.property.postData.habit}</span></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <h4>Description: {property.property.postData.description}</h4>
-            <h4>Comments: {property.property.postData.comments}</h4>
-            <h4>Habit Week Days: {property.property.postData.daysOfWeek}</h4>
-            <h4>Haibt Times: {property.property.postData.timing}</h4>
+            <h5>Description:  <span id="modalText">{property.property.postData.description}</span></h5>
+            <h5>Comments: <span id="modalText">{property.property.postData.comments}</span></h5>
+            <h5>Habit Week Days: <span id="modalText"> {property.property.postData.daysOfWeek}</span></h5>
+            <h5>Haibt Times: <span id="modalText">{property.property.postData.timing}</span></h5>
             </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={()=> {property.property.handleView('editHabit', property.property.postData)}}>
