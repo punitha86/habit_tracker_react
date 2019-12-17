@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 class Navigation extends React.Component {
 render(){
   return <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#home">HabitsApp</Navbar.Brand>
+    <Navbar.Brand href="#home">Hello Healthy Habits!</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
