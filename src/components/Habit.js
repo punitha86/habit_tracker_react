@@ -17,21 +17,80 @@ class Habit extends React.Component {
   constructor(props){
       super(props)
       this.state = {
-          toggleState : false,
+        toggleState0 : false,
+          toggleState1 : false,
+          toggleState2 : false,
+          toggleState3 : false,
+          toggleState4 : false,
+          toggleState5 : false,
+          toggleState6 : false,
           selectedDays :[]
   }
-this.addSelectedDays = this.addSelectedDays.bind(this)
+ this.addSelectedDays = this.addSelectedDays.bind(this)
 }
 
-addSelectedDays(habit) {
-  this.setState({selectedDays: [habit, ...this.state.selectedDays]})
+addSelectedDays(habitDays) {
+  this.setState({selectedDays: [habitDays, ...this.state.selectedDays]})
 }
 
-toggleDays =  () =>{
+toggleDays =  (str) =>{
+switch (str)
+{
+case "sun":
+  this.addSelectedDays("Sunday");
   console.log(this.state.selectedDays);
+    this.setState({
+      toggleState0: !this.state.toggleState0
+    })
+
+break
+case "mon":
+this.addSelectedDays("Monday");
+console.log(this.state.selectedDays);
   this.setState({
-    toggleState: !this.state.toggleState
+    toggleState1: !this.state.toggleState1
   })
+
+break
+case "tue":
+this.addSelectedDays("Tuesday");
+console.log(this.state.selectedDays);
+  this.setState({
+    toggleState2: !this.state.toggleState2
+  })
+break
+case "wed":
+this.addSelectedDays("Wednesday");
+console.log(this.state.selectedDays);
+  this.setState({
+    toggleState3: !this.state.toggleState3
+  })
+break
+case "thur":
+this.addSelectedDays("Thursday");
+console.log(this.state.selectedDays);
+  this.setState({
+    toggleState4: !this.state.toggleState4
+  })
+break
+case "fri":
+this.addSelectedDays("Friday");
+console.log(this.state.selectedDays);
+  this.setState({
+    toggleState5: !this.state.toggleState5
+  })
+break
+case "sat":
+this.addSelectedDays("Saturday");
+console.log(this.state.selectedDays);
+  this.setState({
+    toggleState6: !this.state.toggleState6
+  })
+break
+
+default:
+break
+}
 }
 
   // ==============
@@ -46,58 +105,45 @@ toggleDays =  () =>{
               <td>{this.props.postData.daysOfWeek}</td>
               <td>{this.props.postData.timing}</td>
 
-              <td onClick={()=>
-                this.toggleDays()}
-               handleAdd={this.addSelectedDays}>
-                {
-                  this.state.toggleState
-                ?
-                <span className="lnr lnr-checkmark-circle" ></span>
-                :
-                <span className="lnr lnr-cross-circle" ></span>
-                }
+              <td onClick={()=>this.toggleDays("sun")}>
+                {this.state.toggleState0
+                ?<span className="lnr lnr-checkmark-circle" ></span>
+                :<span className="lnr lnr-cross-circle" ></span>}
               </td>
 
-              <td onClick={()=>this.toggleDays()}>
-                {
-                  this.state.toggleState
-                ?
-                <span className="lnr lnr-checkmark-circle" ></span>
-                :
-                <span className="lnr lnr-cross-circle" ></span>
-                }
+              <td onClick={()=>this.toggleDays("mon")}>
+                {this.state.toggleState1
+                ?<span className="lnr lnr-checkmark-circle" ></span>
+                :<span className="lnr lnr-cross-circle" ></span>}
               </td>
 
-              <td onClick={()=>this.toggleDays()}>
-                {
-                  this.state.toggleState
-                ?
-                <span className="lnr lnr-checkmark-circle" ></span>
-                :
-                <span className="lnr lnr-cross-circle" ></span>
-                }
+              <td onClick={()=>this.toggleDays("tue")}>
+                {this.state.toggleState2
+                ?<span className="lnr lnr-checkmark-circle" ></span>
+                :<span className="lnr lnr-cross-circle" ></span>}
               </td>
-              <td onClick={()=>this.toggleDays()}>
-              {
-                this.state.toggleState
-              ?
-              <span className="lnr lnr-checkmark-circle" ></span>
-              :
-              <span className="lnr lnr-cross-circle" ></span>
-              }
+
+              <td onClick={()=>this.toggleDays("wed")}>
+                {this.state.toggleState3
+                ?<span className="lnr lnr-checkmark-circle" ></span>
+                :<span className="lnr lnr-cross-circle" ></span>}
               </td>
-              <td onClick={()=>this.toggleDays()}>
-              {
-                this.state.toggleState
-              ?
-              <span className="lnr lnr-checkmark-circle" ></span>
-              :
-              <span className="lnr lnr-cross-circle" ></span>
-              }
+
+              <td onClick={()=>this.toggleDays("thur")}>
+              {this.state.toggleState4
+              ?<span className="lnr lnr-checkmark-circle" ></span>
+              :<span className="lnr lnr-cross-circle" ></span>}
               </td>
-              <td onClick={()=>this.toggleDays()}>
+
+              <td onClick={()=>this.toggleDays("fri")}>
+              {this.state.toggleState5
+              ?<span className="lnr lnr-checkmark-circle" ></span>
+              :<span className="lnr lnr-cross-circle" ></span>}
+              </td>
+
+              <td onClick={()=>this.toggleDays("sat")}>
               {
-                this.state.toggleState
+                this.state.toggleState6
               ?
               <span className="lnr lnr-checkmark-circle" ></span>
               :
@@ -105,17 +151,7 @@ toggleDays =  () =>{
               }
               </td>
 
-            <td onClick={()=>{
-              this.toggleDays();}
-            }>
-              {
-                this.state.toggleState
-              ?
-              <span className="lnr lnr-checkmark-circle" ></span>
-              :
-              <span className="lnr lnr-cross-circle" ></span>
-              }
-            </td>
+
             <td>
             <Example property={this.props}/>
             </td>
