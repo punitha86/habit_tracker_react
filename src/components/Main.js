@@ -11,7 +11,7 @@ import Table from 'react-bootstrap/Table';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 // components
 import Habit from './Habit.js'
-import Form from './Form.js'
+import Forms from './Form.js'
 import Navigation from './Navigation.js'
 
 // =============================
@@ -135,7 +135,6 @@ class Main extends React.Component {
   render () {
       return (
      <div>
-        <h1>{this.props.view.pageTitle}</h1>
         <Jumbotron>
         <h1>My Habit Tracker</h1>
         <p>
@@ -152,12 +151,11 @@ class Main extends React.Component {
             </tbody>
             </Table>
           )
-         : <Form
+         : <Forms
                 handleCreate={this.handleCreate}
                 handleUpdate={this.handleUpdate}
                 formInputs={this.props.formInputs}
                 view={this.props.view}
-
             />
         }
 </div>
