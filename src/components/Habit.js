@@ -22,32 +22,8 @@ class Habit extends React.Component {
   // ==============
   render () {
     return (
-      <article>
-      <Jumbotron>
-      <h1>My Habit Tracker</h1>
-      <p>
-      <Button variant="primary">Learn more</Button>
-      </p>
-      </Jumbotron>
-      <Table striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Habit</th>
-              <th> Week days </th>
-              <th> time </th>
-              <th>S</th>
-              <th>M</th>
-              <th>T</th>
-              <th>W</th>
-              <th>Th</th>
-              <th>F</th>
-              <th>S</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
+
+      <tr>
               <td>{this.props.postData.id}</td>
               <td>{this.props.postData.habit}</td>
               <td>{this.props.postData.daysOfWeek}</td>
@@ -60,13 +36,8 @@ class Habit extends React.Component {
               <td>{this.props.postData.completed}</td>
               <td>{this.props.postData.completed}</td>
               <td><Example property={this.props}/></td>
-            </tr>
 
-          </tbody>
-    </Table>
-
-
-      </article>
+      </tr>
     )
   }
 }

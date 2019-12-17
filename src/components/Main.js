@@ -5,7 +5,10 @@
 import React from 'react';
 
 
-
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Table from 'react-bootstrap/Table';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 // components
 import Habit from './Habit.js'
 import Form from './Form.js'
@@ -42,7 +45,7 @@ class Main extends React.Component {
          description:createData.description,
          daysOfWeek:createData.daysOfWeek,
          timing:createData.timing,
-         completed:"false", 
+         completed:"false",
          comments:createData.comments};
       //console.log(stringifiedData);
         fetch(`${baseUrl}/habits`, {
@@ -106,6 +109,25 @@ class Main extends React.Component {
         this.fetchHabits()
     }
 
+    renderTableHeader() {
+       let header = ['#','Habit','WeekDays','time','S','M','T','W','Th','F','Sa']
+       return header.map((head) => {
+          return <th>{head.toUpperCase()}</th>
+       })
+    }
+
+
+    renderTableData() {
+    return this.state.postData.map((habits) => (
+      <Habit
+       key={habits.id}
+       postData={habits}
+       handleView={this.props.handleView}
+       handleDelete={this.handleDelete}
+     />
+
+   ))
+ }
 
   // ==============
   // RENDER
@@ -114,17 +136,22 @@ class Main extends React.Component {
       return (
      <div>
         <h1>{this.props.view.pageTitle}</h1>
+        <Jumbotron>
+        <h1>My Habit Tracker</h1>
+        <p>
+        <Button variant="primary">Learn more</Button>
+        </p>
+        </Jumbotron>
 
         { this.props.view.page === 'home'
-            ? this.state.postData.map((habits) => (
-              <Habit
-               key={habits.id}
-               postData={habits}
-               handleView={this.props.handleView}
-               handleDelete={this.handleDelete}
-             />
-            ))
-
+            ?(
+              <Table striped bordered hover size="sm">
+              <tbody>
+            <tr>{this.renderTableHeader()}</tr>
+            {this.renderTableData()}
+            </tbody>
+            </Table>
+          )
          : <Form
                 handleCreate={this.handleCreate}
                 handleUpdate={this.handleUpdate}
@@ -133,8 +160,7 @@ class Main extends React.Component {
 
             />
         }
-
-     </div>
+</div>
     )
   }
 }
