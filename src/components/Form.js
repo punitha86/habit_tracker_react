@@ -56,21 +56,13 @@ componentDidMount(){
         id: this.props.formInputs.id
     })
 }
-renderDay=(props, currentDate, selectedDate )=>{
-        return <td {...props}>{ '0' + currentDate.date() }</td>;
-    }
-renderMonth=( props, month, year, selectedDate )=>{
-        return <td {...props}>{ month }</td>;
-    }
-renderYear=( props, year, selectedDate )=>{
-        return <td {...props}>{ year % 100 }</td>;
-    }
+
   // ==============
   // RENDER
   // ==============
   render () {
     return (
-      <>
+      <div className="container">
       <Form onSubmit={this.handleSubmit}>
         <Form.Group >
           <Form.Label>Habit</Form.Label>
@@ -114,7 +106,7 @@ renderYear=( props, year, selectedDate )=>{
         </Button>
       </Form>
 
-      </>
+      </div>
     )
   }
 }
