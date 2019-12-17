@@ -110,9 +110,9 @@ class Main extends React.Component {
     }
 
     renderTableHeader() {
-       let header = ['#','Habit','WeekDays','time','S','M','T','W','Th','F','Sa']
-       return header.map((head) => {
-          return <th>{head.toUpperCase()}</th>
+       let header = ['#','Habit','WeekDays','time','S','M','T','W','Th','F','Sa','']
+       return header.map((head,index) => {
+          return <th key={index}>{head.toUpperCase()}</th>
        })
     }
 
