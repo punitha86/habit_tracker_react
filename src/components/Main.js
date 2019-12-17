@@ -14,6 +14,10 @@ import Habit from './Habit.js'
 import Forms from './Form.js'
 import Navigation from './Navigation.js'
 
+
+
+
+
 // =============================
 // COMPONENT CLASS
 // =============================
@@ -142,6 +146,7 @@ class Main extends React.Component {
         </p>
         </Jumbotron>
 
+
         { this.props.view.page === 'home'
             ?(
               <Table striped bordered hover size="sm">
@@ -158,6 +163,7 @@ class Main extends React.Component {
                 view={this.props.view}
             />
         }
+
 </div>
     )
   }

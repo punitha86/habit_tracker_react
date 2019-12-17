@@ -54,13 +54,13 @@ function Example(property) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{property.property.postData.habit}</Modal.Title>
+          <Modal.Title><span id="modalTitle">{property.property.postData.habit}</span></Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <h4>Description: {property.property.postData.description}</h4>
-            <h4>Comments: {property.property.postData.comments}</h4>
-            <h4>Habit Week Days: {property.property.postData.daysOfWeek}</h4>
-            <h4>Haibt Times: {property.property.postData.timing}</h4>
+            <h5>Description:  <span id="modalText">{property.property.postData.description}</span></h5>
+            <h5>Comments: <span id="modalText">{property.property.postData.comments}</span></h5>
+            <h5>Habit Week Days: <span id="modalText"> {property.property.postData.daysOfWeek}</span></h5>
+            <h5>Haibt Times: <span id="modalText">{property.property.postData.timing}</span></h5>
             </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={()=> {property.property.handleView('editHabit', property.property.postData)}}>
