@@ -58,8 +58,14 @@ code {
 }
 
 #container {
-    margin: 2%;
-    margin-right: 100%;
+    /* margin: 2%; */
+    /* margin-right: 100%; */
+
+}
+
+tr {
+
+    text-align: center;
 }
 
 
