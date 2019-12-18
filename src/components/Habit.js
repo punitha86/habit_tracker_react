@@ -100,7 +100,7 @@ break
     return (
 
       <tr>
-              <td>{this.props.postData.id}</td>
+
               <td>{this.props.postData.habit}</td>
               <td>{this.props.postData.daysOfWeek}</td>
               <td>{this.props.postData.timing}</td>
@@ -169,7 +169,7 @@ function Example(property) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="info" onClick={handleShow}>
         View/Edit Habit
       </Button>
 

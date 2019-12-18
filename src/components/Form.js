@@ -42,8 +42,11 @@ class Forms extends React.Component {
     const uniqueValues = Array.from(new Set(this.state.habitSelectedDays));
     const joinedValues=uniqueValues.join();
     const stringValue=joinedValues.toString();
+    if(stringValue!="")
     this.state.daysOfWeek=stringValue;
-console.log(this.state);
+    const temp=this.state.timing;
+    this.state.timing= temp.toString();
+    console.log(this.state);
     if (this.props.view.page === 'addHabit') {
         this.props.handleCreate(this.state);
     } else if (this.props.view.page === 'editHabit') {
@@ -122,25 +125,20 @@ switch (str)
           <Form.Label>Habit Weekday Goals</Form.Label>
           <ButtonToolbar>
             <ToggleButtonGroup type="checkbox">
-              <ToggleButton onChange={()=>this.addHabitDays("Sunday")} >Sun</ToggleButton>
-              <ToggleButton  onChange={()=>this.addHabitDays("Monday")} >Mon</ToggleButton>
-              <ToggleButton onChange={()=>this.addHabitDays("Tuesday")}>Tue</ToggleButton>
-              <ToggleButton onChange={()=>this.addHabitDays("Wednesday")}>Wed</ToggleButton>
-              <ToggleButton onChange={()=>this.addHabitDays("Thursday")}>Thur</ToggleButton>
-              <ToggleButton onChange={()=>this.addHabitDays("Friday")}>Fri</ToggleButton>
-              <ToggleButton onChange={()=>this.addHabitDays("Saturday")}>Sat</ToggleButton>
-​
+              <ToggleButton value={1} onChange={()=>this.addHabitDays("Sunday")} >Sun</ToggleButton>
+              <ToggleButton  value={2} onChange={()=>this.addHabitDays("Monday")} >Mon</ToggleButton>
+              <ToggleButton value={3} onChange={()=>this.addHabitDays("Tuesday")}>Tue</ToggleButton>
+              <ToggleButton value={4} onChange={()=>this.addHabitDays("Wednesday")}>Wed</ToggleButton>
+              <ToggleButton value={5} onChange={()=>this.addHabitDays("Thursday")}>Thur</ToggleButton>
+              <ToggleButton value={6} onChange={()=>this.addHabitDays("Friday")}>Fri</ToggleButton>
+              <ToggleButton value={7} onChange={()=>this.addHabitDays("Saturday")}>Sat</ToggleButton>
             </ToggleButtonGroup>
           </ButtonToolbar>
         </Form.Group>
-​
         <Form.Group>
           <Form.Label>Habit Time</Form.Label>
           <Form.Control type="time" id= "timing" value={this.state.timing} onChange={this.handleChange}/>
         </Form.Group>
-​
-​
-​
         <Button variant="primary" type="submit">
           Submit
         </Button>
