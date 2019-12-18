@@ -39,7 +39,7 @@ code {
     /* color: #ecdfd1; */
     text-shadow: 1px 1px white;
 
-} 
+}
 
 #jumboButton {
     margin-top: 1%;
@@ -68,6 +68,19 @@ tr {
     text-align: center;
 }
 
+footer{
+  text-align: center;
+  padding-bottom: 2%;
+}
+a:link{
+  color:black;
+}
+a:visited{
+  color:black;
+}
+a:hover{
+  color:green;
+}
 
 .wave {
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
