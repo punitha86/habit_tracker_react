@@ -3,11 +3,12 @@
 // =============================
 // packages
 import React from 'react';
-import Datetime from 'react-datetime';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ToggleButton from 'react-bootstrap/ToggleButton';
 
 // =============================
 // COMPONENT CLASS
@@ -24,10 +25,10 @@ class Forms extends React.Component {
       comments: '',
       daysOfWeek: '',
       timing: '',
-      id: null
+      id: null,
+      habitSelectedDays:[]
     }
   }
-
   // ==============
   // HANDLERS
   // ==============
@@ -35,28 +36,66 @@ class Forms extends React.Component {
   handleChange = (e) => {
     this.setState({[e.target.id] : e.target.value})
   }
-
   // handles submit
   handleSubmit = (e) => {
     e.preventDefault()
+    const uniqueValues = Array.from(new Set(this.state.habitSelectedDays));
+    const joinedValues=uniqueValues.join();
+    const stringValue=joinedValues.toString();
+    this.state.daysOfWeek=stringValue;
+console.log(this.state);
     if (this.props.view.page === 'addHabit') {
         this.props.handleCreate(this.state);
     } else if (this.props.view.page === 'editHabit') {
         this.props.handleUpdate(this.state)
     }
 }
-
 componentDidMount(){
     this.setState({
         habit: this.props.formInputs.habit,
         description: this.props.formInputs.description,
         comments: this.props.formInputs.comments,
-        daysOfWeek: this.props.formInputs.daysOfWeek,
+        daysOfWeek:this.props.formInputs.daysOfWeek,
         timing: this.props.formInputs.timing,
         id: this.props.formInputs.id
     })
 }
-
+addHabitSelectedDays(habitpassedDays) {
+  this.setState(previousState =>
+    ({
+    habitSelectedDays: [...previousState.habitSelectedDays, habitpassedDays]
+    }
+    ));
+    console.log(this.state.habitSelectedDays);
+}
+addHabitDays =  (str) =>{
+switch (str)
+{
+      case "Sunday":
+      this.addHabitSelectedDays("Sunday");
+      break
+      case "Monday":
+      this.addHabitSelectedDays("Monday");
+      break
+      case "Tuesday":
+      this.addHabitSelectedDays("Tuesday");
+      break
+      case "Wednesday":
+      this.addHabitSelectedDays("Wednesday");
+      break
+      case "Thursday":
+      this.addHabitSelectedDays("Thursday");
+      break
+      case "Friday":
+      this.addHabitSelectedDays("Friday");
+      break
+      case "Saturday":
+      this.addHabitSelectedDays("Saturday");
+      break
+      default:
+      break
+}
+}
   // ==============
   // RENDER
   // ==============
@@ -68,49 +107,49 @@ componentDidMount(){
           <Form.Label>Habit</Form.Label>
           <Form.Control type="text" placeholder="Your Habit" id= "habit" value={this.state.habit} onChange={this.handleChange}/>
         </Form.Group>
-
+​
         <Form.Group>
           <Form.Label>Description</Form.Label>
           <Form.Control type="text" placeholder="Describe your habit" id= "description" value={this.state.description} onChange={this.handleChange}/>
         </Form.Group>
-
+​
         <Form.Group>
           <Form.Label>Comments</Form.Label>
           <Form.Control as="textarea" placeholder="Comments about your habit!" id= "comments" value={this.state.comments} onChange={this.handleChange}/>
         </Form.Group>
-
+​
         <Form.Group>
           <Form.Label>Habit Weekday Goals</Form.Label>
-          <Form.Control type="text" placeholder="Monday" id= "daysOfWeek" value={this.state.daysOfWeek} onChange={this.handleChange}/>
+          <ButtonToolbar>
+            <ToggleButtonGroup type="checkbox">
+              <ToggleButton onChange={()=>this.addHabitDays("Sunday")} >Sun</ToggleButton>
+              <ToggleButton  onChange={()=>this.addHabitDays("Monday")} >Mon</ToggleButton>
+              <ToggleButton onChange={()=>this.addHabitDays("Tuesday")}>Tue</ToggleButton>
+              <ToggleButton onChange={()=>this.addHabitDays("Wednesday")}>Wed</ToggleButton>
+              <ToggleButton onChange={()=>this.addHabitDays("Thursday")}>Thur</ToggleButton>
+              <ToggleButton onChange={()=>this.addHabitDays("Friday")}>Fri</ToggleButton>
+              <ToggleButton onChange={()=>this.addHabitDays("Saturday")}>Sat</ToggleButton>
+​
+            </ToggleButtonGroup>
+          </ButtonToolbar>
         </Form.Group>
-
+​
         <Form.Group>
           <Form.Label>Habit Time</Form.Label>
           <Form.Control type="time" id= "timing" value={this.state.timing} onChange={this.handleChange}/>
         </Form.Group>
-
-        <ButtonToolbar aria-label="Toolbar with button groups">
-          <ButtonGroup className="mr-2" aria-label="First group">
-          <Button>S</Button>
-          <Button>M</Button>
-          <Button>T</Button>
-          <Button>W</Button>
-          <Button>Th</Button>
-          <Button>F</Button>
-          <Button>Sa</Button>
-
-          </ButtonGroup>
-          </ButtonToolbar>
+​
+​
+​
         <Button variant="primary" type="submit">
           Submit
         </Button>
       </Form>
-
+​
       </div>
     )
   }
 }
-
 // =============================
 // EXPORT
 // =============================
