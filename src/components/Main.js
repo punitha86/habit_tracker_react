@@ -115,7 +115,7 @@ class Main extends React.Component {
     }
 
     renderTableHeader() {
-       let header = ['#','Habit','Habit Weekday Goals','time','S','M','T','W','Th','F','Sa','']
+       let header = ['Habit','Habit Weekday Goals','time','S','M','T','W','Th','F','Sa','']
        return header.map((head,index) => {
           return <th key={index}>{head.toUpperCase()}</th>
        })
@@ -140,17 +140,18 @@ class Main extends React.Component {
   render () {
       return (
      <div>
-        <Jumbotron id="jumbo">
+     <Jumbotron id="jumbo">
         <h1 id="jumboTitle">My Habit Tracker</h1>
         <p id="jumboButton">
-        <Button variant="light" id="jButtonText" onClick={() => {this.props.handleView('addHabit')}}>Add A Habit</Button>
+        <Button variant="info" id="jButtonText" onClick={() => {this.props.handleView('addHabit')}}>Add A Habit</Button>
         </p>
+        <div className="wave"></div>
+        <div className="wave"></div>
         </Jumbotron>
-
 
         { this.props.view.page === 'home'
             ?(
-              <Table striped bordered hover size="sm">
+              <Table striped bordered hover size="sm" id="container">
               <tbody>
             <tr>{this.renderTableHeader()}</tr>
             {this.renderTableData()}
