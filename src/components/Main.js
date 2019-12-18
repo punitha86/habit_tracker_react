@@ -18,6 +18,7 @@ import Navigation from './Navigation.js'
 
 
 
+
 // =============================
 // COMPONENT CLASS
 // =============================
@@ -114,7 +115,7 @@ class Main extends React.Component {
     }
 
     renderTableHeader() {
-       let header = ['#','Habit','WeekDays','time','S','M','T','W','Th','F','Sa','']
+       let header = ['#','Habit','Habit Weekday Goals','time','S','M','T','W','Th','F','Sa','']
        return header.map((head,index) => {
           return <th key={index}>{head.toUpperCase()}</th>
        })
@@ -139,10 +140,10 @@ class Main extends React.Component {
   render () {
       return (
      <div>
-        <Jumbotron>
-        <h1>My Habit Tracker</h1>
-        <p>
-        <Button variant="primary">Learn more</Button>
+        <Jumbotron id="jumbo">
+        <h1 id="jumboTitle">My Habit Tracker</h1>
+        <p id="jumboButton">
+        <Button variant="light" id="jButtonText" onClick={() => {this.props.handleView('addHabit')}}>Add A Habit</Button>
         </p>
         </Jumbotron>
 

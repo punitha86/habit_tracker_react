@@ -1,7 +1,5 @@
 body {
-    /* background-color: #FFFF6; */
-    /* background-image: url(https://i.imgur.com/jMLpR3l.png); */
-    /* background-image: url(https://i.imgur.com/syOxLtb.png); */
+
     background-image: url(https://i.imgur.com/gU5zbCZ.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -27,4 +25,34 @@ code {
 #modalTitle {
     font-family: 'Assistant', sans-serif;
 
+}
+
+#jumboTitle {
+    /* font-family: 'Assistant', sans-serif; */
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+    /* font-family: 'Lobster', cursive; */
+    font-family: 'Dancing Script', cursive;
+    /* color: #fff8dc; */
+    /* color: #ecdfd1; */
+    text-shadow: 1px 1px white;
+
+}
+
+#jumboButton {
+    margin-top: 1%;
+    text-align: center;
+
+}
+
+#jButtonText {
+    color: skyblue;
+}
+
+#jumbo {
+    height: 25vh;
+    margin-bottom: 5%;
+    background-color: rgba(232,232,232, .6);
+    border-radius: 80% 20% / 10% 40%;
 }

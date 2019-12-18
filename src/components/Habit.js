@@ -149,6 +149,7 @@ break
               :
               <span className="lnr lnr-cross-circle" ></span>
               }
+
               </td>
 
 
@@ -179,7 +180,7 @@ function Example(property) {
         <Modal.Body>
             <h5>Description:  <span id="modalText">{property.property.postData.description}</span></h5>
             <h5>Comments: <span id="modalText">{property.property.postData.comments}</span></h5>
-            <h5>Habit Week Days: <span id="modalText"> {property.property.postData.daysOfWeek}</span></h5>
+            <h5>Haibt Weekday Goals: <span id="modalText"> {property.property.postData.daysOfWeek}</span></h5>
             <h5>Haibt Times: <span id="modalText">{property.property.postData.timing}</span></h5>
             </Modal.Body>
         <Modal.Footer>
